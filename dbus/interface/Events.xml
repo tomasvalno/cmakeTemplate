@@ -1,0 +1,31 @@
+<!DOCTYPE node PUBLIC "-//freedesktop//DTD D-BUS Object Introspection 1.0//EN"
+"http://www.freedesktop.org/standards/dbus/1.0/introspect.dtd">
+
+<node dest="t"
+	path="/com/verisure/cuxscored" >
+
+	<interface name="cuxs.Event0">
+
+		<method name="refreshInfo">
+		</method>
+
+		<method name="requestSystemState">
+		</method>
+
+		<method name="configNodeDigest">
+			<arg name="enable" direction="in" type="b"/>
+		</method>
+
+		<method name="getNodeList">
+			<arg name="filter" direction="in" type="u"/>
+                        <arg name="matchingNodesType" direction="out" type="a(uu)"/>
+				<annotation name="org.qtproject.QtDBus.QtTypeName.Out0" value="VectNodeInfo"/>
+				<!-- 0=CU xx=Magnetic2 yy=Magnetic3 zz=HomePanel ... -->
+		</method>
+
+		<signal name="signalEvent">
+			<arg name="event" type="s"/>
+		</signal>
+
+	</interface>
+</node>
